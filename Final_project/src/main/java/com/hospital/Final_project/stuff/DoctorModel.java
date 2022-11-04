@@ -2,7 +2,8 @@ package com.hospital.Final_project.stuff;
 
 import java.time.LocalDate;
 
-public class Doctor {
+public class DoctorModel {
+
     private Long id;
     private String name;
     private String surname;
@@ -11,11 +12,11 @@ public class Doctor {
     private Integer office;
     private Integer number;
 
-    public Doctor(Long id) {
+    public DoctorModel(Long id) {
         this.id = id;
     }
 
-    public Doctor(
+    public DoctorModel(
             Long id,
             String name,
             String surname,
@@ -32,7 +33,7 @@ public class Doctor {
         this.number = number;
     }
 
-    public Doctor(
+    public DoctorModel(
             String name,
             String surname,
             LocalDate dateOfbirth,
@@ -115,5 +116,4 @@ public class Doctor {
                 ", number=" + number +
                 '}';
     }
-
 }
