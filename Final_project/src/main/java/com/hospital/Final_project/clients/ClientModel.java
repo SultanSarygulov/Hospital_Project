@@ -2,7 +2,8 @@ package com.hospital.Final_project.clients;
 
 import java.time.LocalDate;
 
-public class Client {
+public class ClientModel {
+
     private Long id;
     private String name;
     private String surname;
@@ -10,19 +11,19 @@ public class Client {
     private String problem;
     private String email;
     private Integer phone;
+    private Long whom;
+    private LocalDate when;
 
-    public Client(Long id) {
-        this.id = id;
-    }
-
-    public Client(
+    public ClientModel(
             Long id,
             String name,
             String surname,
             LocalDate dateOfbirth,
             String problem,
             String email,
-            Integer phone) {
+            Integer phone,
+            Long whom,
+            LocalDate when) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -30,20 +31,27 @@ public class Client {
         this.problem = problem;
         this.email = email;
         this.phone = phone;
+        this.whom = whom;
+        this.when = when;
     }
 
-    public Client(String name,
-                  String surname,
-                  LocalDate dateOfbirth,
-                  String problem,
-                  String email,
-                  Integer phone) {
+    public ClientModel(
+            String name,
+            String surname,
+            LocalDate dateOfbirth,
+            String problem,
+            String email,
+            Integer phone,
+            Long whom,
+            LocalDate when) {
         this.name = name;
         this.surname = surname;
         this.dateOfbirth = dateOfbirth;
         this.problem = problem;
         this.email = email;
         this.phone = phone;
+        this.whom = whom;
+        this.when = when;
     }
 
     public Long getId() {
@@ -102,9 +110,25 @@ public class Client {
         this.phone = phone;
     }
 
+    public Long getWhom() {
+        return whom;
+    }
+
+    public void setWhom(Long whom) {
+        this.whom = whom;
+    }
+
+    public LocalDate getWhen() {
+        return when;
+    }
+
+    public void setWhen(LocalDate when) {
+        this.when = when;
+    }
+
     @Override
     public String toString() {
-        return "Client{" +
+        return "Model_registration{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
@@ -112,6 +136,8 @@ public class Client {
                 ", problem='" + problem + '\'' +
                 ", email='" + email + '\'' +
                 ", phone=" + phone +
+                ", whom=" + whom +
+                ", when=" + when +
                 '}';
     }
 }
