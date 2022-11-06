@@ -1,11 +1,7 @@
 package com.hospital.Final_project.clients;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.time.LocalDate;
-import java.util.HashMap;
 
-@Repository
-public class ClientRepository {
-    HashMap<String, LocalDate> registration = new HashMap<>();
+public interface ClientRepository extends JpaRepository<ClientModel, Long> {
 }

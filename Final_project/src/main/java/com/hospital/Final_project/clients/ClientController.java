@@ -1,25 +1,40 @@
 package com.hospital.Final_project.clients;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.beans.ConstructorProperties;
-import java.util.List;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @RestController("/clients")
 
 public class ClientController {
-    private
+    private ClientService clientService;
 
-    @GetMapping("/main")
-    public String main(){
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
+    }
 
-        return null;
+    @GetMapping("/clients")
+    public String listClients(Model model){
+        model.addAttribute("clients", clientService.getAllClients());
+        return "home";
     }
 
     @GetMapping("/registration")
-    public String registration(@RequestBody ClientModel clientModel){
-        return null;
+    public String registration(Model model){
+        ClientModel clientModel = new ClientModel();
+        model.addAttribute("client", clientModel);
+        return "registration";
     }
+
+    @PostMapping("/clients")
+    public String saveClient(@ModelAttribute("client") ClientModel clientModel){
+        clientService.saveClient(clientModel);
+        return "redirect:/home";
+    }
+
+    public String getClient(@PathVariable Long id, Model model) {
+        model.addAttribute("client", clientService.getClientById(id));
+        return "client";
+    }
+
+
 }
