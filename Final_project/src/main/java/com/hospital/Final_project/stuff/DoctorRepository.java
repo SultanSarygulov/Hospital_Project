@@ -1,11 +1,9 @@
 package com.hospital.Final_project.stuff;
 
-import org.springframework.stereotype.Repository;
+import com.hospital.Final_project.clients.ClientModel;
+import com.hospital.Final_project.stuff.DoctorModel;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.time.LocalDate;
-import java.util.HashMap;
 
-@Repository
-public class DoctorRepository {
-    HashMap<String, LocalDate> doctorInfo = new HashMap<>();
+public interface DoctorRepository extends JpaRepository<DoctorModel, Long> {
 }
