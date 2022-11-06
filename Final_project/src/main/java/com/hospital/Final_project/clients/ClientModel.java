@@ -1,29 +1,34 @@
 package com.hospital.Final_project.clients;
 
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "clients")
 public class ClientModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "surname", nullable = false)
     private String surname;
+    @Column(name = "dateOFbirth", nullable = false)
     private LocalDate dateOfbirth;
+    @Column(name = "problem")
     private String problem;
+    @Column(name = "email")
     private String email;
+    @Column(name = "phone", nullable = false)
     private Integer phone;
+    @Column(name = "whom")
     private Long whom;
+    @Column(name = "time", nullable = false)
     private LocalDate when;
 
-    public ClientModel(
-            Long id,
-            String name,
-            String surname,
-            LocalDate dateOfbirth,
-            String problem,
-            String email,
-            Integer phone,
-            Long whom,
-            LocalDate when) {
+    public ClientModel() {
         this.id = id;
         this.name = name;
         this.surname = surname;
