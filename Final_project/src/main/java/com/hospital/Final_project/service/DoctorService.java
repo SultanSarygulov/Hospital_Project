@@ -1,5 +1,6 @@
-package com.hospital.Final_project.stuff;
+package com.hospital.Final_project.service;
 
+import com.hospital.Final_project.model.DoctorModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

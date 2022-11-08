@@ -1,11 +1,14 @@
-package com.hospital.Final_project.clients;
+package com.hospital.Final_project.serviceImpl;
 
+import com.hospital.Final_project.model.ClientModel;
+import com.hospital.Final_project.repository.ClientRepository;
+import com.hospital.Final_project.service.ClientService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ClientServiceimpl implements ClientService{
+public class ClientServiceimpl implements ClientService {
 
     private ClientRepository clientRepository;
 
