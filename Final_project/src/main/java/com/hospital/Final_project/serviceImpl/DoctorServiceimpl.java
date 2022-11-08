@@ -1,10 +1,12 @@
-package com.hospital.Final_project.stuff;
+package com.hospital.Final_project.serviceImpl;
 
-import com.hospital.Final_project.stuff.DoctorModel;
+import com.hospital.Final_project.model.DoctorModel;
+import com.hospital.Final_project.repository.DoctorRepository;
+import com.hospital.Final_project.service.DoctorService;
 
 import java.util.List;
 
-public class DoctorServiceimpl implements DoctorService{
+public class DoctorServiceimpl implements DoctorService {
     private DoctorRepository doctorRepository;
 
     public DoctorServiceimpl(DoctorRepository doctorRepository) {

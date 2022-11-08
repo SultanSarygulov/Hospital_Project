@@ -1,4 +1,4 @@
-package com.hospital.Final_project.clients;
+package com.hospital.Final_project.model;
 
 
 import javax.persistence.*;
@@ -39,6 +39,7 @@ public class ClientModel {
         this.whom = whom;
         this.when = when;
     }
+
 
     public ClientModel(
             String name,

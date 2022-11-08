@@ -1,8 +1,7 @@
-package com.hospital.Final_project.stuff;
+package com.hospital.Final_project.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
 @Entity
 @Table(name = "stuff")
 public class DoctorModel {

@@ -1,5 +1,6 @@
-package com.hospital.Final_project.clients;
+package com.hospital.Final_project.service;
 
+import com.hospital.Final_project.model.ClientModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 @Service
 public interface ClientService {
 
-    public List<ClientModel> getAllClients();
+    List<ClientModel> getAllClients();
 
     ClientModel saveClient(ClientModel clientModel);
 
