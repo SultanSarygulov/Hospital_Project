@@ -1,4 +1,4 @@
-package com.hospital.Final_project.serviceImpl;
+package com.hospital.Final_project.service.serviceImpl;
 
 import com.hospital.Final_project.model.DoctorModel;
 import com.hospital.Final_project.repository.DoctorRepository;

@@ -3,7 +3,7 @@ package com.hospital.Final_project.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
-@Table(name = "stuff")
+@Table(name = "staff")
 public class DoctorModel {
 
     @Id
@@ -19,28 +19,10 @@ public class DoctorModel {
     private String role;
     @Column(name = "office", nullable = false)
     private Integer office;
-    @Column(name = "number", nullable = false)
-    private Integer number;
+    @Column(name = "phone", nullable = false)
+    private Integer phone;
 
-    public DoctorModel(Long id) {
-        this.id = id;
-    }
-
-    public DoctorModel(
-            Long id,
-            String name,
-            String surname,
-            LocalDate dateOfbirth,
-            String role,
-            Integer office,
-            Integer number) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.dateOfbirth = dateOfbirth;
-        this.role = role;
-        this.office = office;
-        this.number = number;
+    public DoctorModel() {
     }
 
     public DoctorModel(
@@ -49,13 +31,14 @@ public class DoctorModel {
             LocalDate dateOfbirth,
             String role,
             Integer office,
-            Integer number) {
+            Integer phone
+    ) {
         this.name = name;
         this.surname = surname;
         this.dateOfbirth = dateOfbirth;
         this.role = role;
         this.office = office;
-        this.number = number;
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -106,12 +89,12 @@ public class DoctorModel {
         this.office = office;
     }
 
-    public Integer getNumber() {
-        return number;
+    public Integer getPhone() {
+        return phone;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 
     @Override
@@ -123,7 +106,7 @@ public class DoctorModel {
                 ", dateOfbirth=" + dateOfbirth +
                 ", role='" + role + '\'' +
                 ", office=" + office +
-                ", number=" + number +
+                ", phone=" + phone +
                 '}';
     }
 }

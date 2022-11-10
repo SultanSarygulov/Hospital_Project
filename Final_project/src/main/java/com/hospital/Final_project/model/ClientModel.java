@@ -10,6 +10,7 @@ public class ClientModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
@@ -28,28 +29,19 @@ public class ClientModel {
     @Column(name = "time", nullable = false)
     private LocalDate when;
 
-    public ClientModel() {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.dateOfbirth = dateOfbirth;
-        this.problem = problem;
-        this.email = email;
-        this.phone = phone;
-        this.whom = whom;
-        this.when = when;
+    public ClientModel(){
+
     }
 
-
-    public ClientModel(
-            String name,
-            String surname,
-            LocalDate dateOfbirth,
-            String problem,
-            String email,
-            Integer phone,
-            Long whom,
-            LocalDate when) {
+    public ClientModel(String name,
+                       String surname,
+                       LocalDate dateOfbirth,
+                       String problem,
+                       String email,
+                       Integer phone,
+                       Long whom,
+                       LocalDate when) {
+        super();
         this.name = name;
         this.surname = surname;
         this.dateOfbirth = dateOfbirth;
