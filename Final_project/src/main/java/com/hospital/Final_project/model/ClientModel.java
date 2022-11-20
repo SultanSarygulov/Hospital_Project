@@ -1,6 +1,8 @@
 package com.hospital.Final_project.model;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -17,6 +19,7 @@ public class ClientModel {
     @Column(name = "surname", nullable = false)
     private String surname;
     @Column(name = "dateOFbirth", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfbirth;
     @Column(name = "problem")
     private String problem;
@@ -27,21 +30,23 @@ public class ClientModel {
     @Column(name = "whom")
     private Long whom;
     @Column(name = "time", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate when;
 
     public ClientModel(){
 
     }
 
-    public ClientModel(String name,
-                       String surname,
-                       LocalDate dateOfbirth,
-                       String problem,
-                       String email,
-                       Integer phone,
-                       Long whom,
-                       LocalDate when) {
-        super();
+    public ClientModel(
+            String name,
+            String surname,
+            LocalDate dateOfbirth,
+            String problem,
+            String email,
+            Integer phone,
+            Long whom,
+            LocalDate when
+    ) {
         this.name = name;
         this.surname = surname;
         this.dateOfbirth = dateOfbirth;
@@ -124,9 +129,11 @@ public class ClientModel {
         this.when = when;
     }
 
+
+
     @Override
     public String toString() {
-        return "Model_registration{" +
+        return "ClientModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

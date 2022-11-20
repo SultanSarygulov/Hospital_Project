@@ -10,14 +10,14 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <!-- Brand -->
-    <a class="navbar-brand" href="#">Clients</a>
+
+    <a class="navbar-brand" href="#">Doctors</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar links -->
+
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -37,39 +37,29 @@
 
     <div class = "row">
 <!--        <div class = "col-lg-3">-->
-<!--            <a th:href = "@{/registration}" class = "btn btn-primary btn-sm mb-3"> Get</a>-->
+<!--            <a th:href = "@{/doctors/registration}" class = "btn btn-primary btn-sm mb-3"> Register</a>-->
 <!--        </div>-->
     </div>
     <table class = "table table-striped table-bordered">
         <thead class = "table-dark">
         <tr>
-            <th> Client Name</th>
-            <th> Client Surname</th>
-            <th> Client Date of birth </th>
-            <th> Client Problem </th>
-            <th> Client Email </th>
-            <th> Client Phone Number </th>
-            <th> Whom registered </th>
-            <th> Time </th>
-            <th> Actions </th>
+            <th> Name</th>
+            <th> Surname</th>
+            <th>  Date of birth </th>
+            <th> Role </th>
+            <th> Office </th>
+            <th> Phone Number </th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each = "client: ${clients}">
-            <td th:text = "${client.name}"></td>
-            <td th:text = "${client.surname}"></td>
-            <td th:text = "${client.dateOfbirth}"></td>
-            <td th:text = "${client.problem}"></td>
-            <td th:text = "${client.email}"></td>
-            <td th:text = "${client.phone}"></td>
-            <td th:text = "${client.whom}"></td>
-            <td th:text = "${client.when}"></td>
-            <td>
-
-                <a th:href = "@{/client}"
-                   class = "btn btn-danger">Get</a>
-            </td>
+        <tr th:each = "doctor: ${doctors}">
+            <td th:text = "${doctor.name}"></td>
+            <td th:text = "${doctor.surname}"></td>
+            <td th:text = "${doctor.dateOfbirth}"></td>
+            <td th:text = "${doctor.role}"></td>
+            <td th:text = "${doctor.office}"></td>
+            <td th:text = "${doctor.phone}"></td>
         </tr>
         </tbody>
 

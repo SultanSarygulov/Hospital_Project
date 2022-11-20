@@ -3,9 +3,10 @@ package com.hospital.Final_project.service.serviceImpl;
 import com.hospital.Final_project.model.DoctorModel;
 import com.hospital.Final_project.repository.DoctorRepository;
 import com.hospital.Final_project.service.DoctorService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class DoctorServiceimpl implements DoctorService {
     private DoctorRepository doctorRepository;
 
@@ -19,8 +20,8 @@ public class DoctorServiceimpl implements DoctorService {
     }
 
     @Override
-    public DoctorModel saveDoctor(DoctorModel doctorModel){
-        return doctorRepository.save(doctorModel);
+    public void saveDoctor(DoctorModel doctorModel){
+        this.doctorRepository.save(doctorModel);
     }
 
 //    @Override

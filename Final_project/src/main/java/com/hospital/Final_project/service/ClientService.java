@@ -11,7 +11,7 @@ public interface ClientService {
 
     List<ClientModel> getAllClients();
 
-    ClientModel saveClient(ClientModel clientModel);
+    void saveClient(ClientModel clientModel);
 
     ClientModel getClientById(Long id);
 
