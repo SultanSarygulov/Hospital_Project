@@ -22,8 +22,8 @@ public class ClientServiceimpl implements ClientService {
     }
 
     @Override
-    public ClientModel saveClient(ClientModel clientModel){
-        return clientRepository.save(clientModel);
+    public void saveClient(ClientModel clientModel){
+        this.clientRepository.save(clientModel);
     }
 
     @Override

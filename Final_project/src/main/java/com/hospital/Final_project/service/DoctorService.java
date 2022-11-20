@@ -8,9 +8,9 @@ import java.util.List;
 @Service
 public interface DoctorService {
 
-    public List<DoctorModel> getAllstuff();
+    List<DoctorModel> getAllstuff();
 
-    DoctorModel saveDoctor(DoctorModel doctorModel);
+    void saveDoctor(DoctorModel doctorModel);
 
 //    DoctorModel deleteDoctor(DoctorModel doctorModel);
 

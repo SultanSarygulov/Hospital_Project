@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/clients}">Registration</a>
+                <a class="nav-link" th:href="@{/doctors}">Registration</a>
             </li>
         </ul>
     </div>
@@ -34,7 +34,7 @@
         <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
             <h1 class = "text-center"> Register </h1>
             <div class = "card-body">
-                <form th:action="@{/clients}" th:object = "${clients}" method="POST">
+                <form th:action="@{/save}" th:object = "${client}" method="POST">
                     <div class ="form-group">
                         <label> Your name </label>
                         <input
@@ -82,7 +82,7 @@
                     <div class ="form-group">
                         <label> Your email </label>
                         <input
-                                type = "email"
+                                type = "text"
                                 name = "email"
                                 th:field = "*{email}"
                                 class = "form-control"
@@ -93,7 +93,7 @@
                     <div class ="form-group">
                         <label> Your phone number </label>
                         <input
-                                type = "tel"
+                                type = "number"
                                 name = "phone"
                                 th:field = "*{phone}"
                                 class = "form-control"
@@ -115,7 +115,7 @@
                     <div class ="form-group">
                         <label> What time you want to get a registration </label>
                         <input
-                                type = "datetime-local"
+                                type = "date"
                                 name = "when"
                                 th:field = "*{when}"
                                 class = "form-control"

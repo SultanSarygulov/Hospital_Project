@@ -1,5 +1,7 @@
 package com.hospital.Final_project.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
@@ -14,6 +16,7 @@ public class DoctorModel {
     @Column(name = "surname", nullable = false)
     private String surname;
     @Column(name = "dateOFbirth", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfbirth;
     @Column(name = "role", nullable = false)
     private String role;
