@@ -4,6 +4,7 @@ import com.hospital.Final_project.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -48,7 +49,7 @@ public class UserSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
-        http.csrf().disable().authorizeHttpRequests().antMatchers("/api/v1**", "/registration").permitAll()
+        http.csrf().disable().authorizeHttpRequests().antMatchers("/api/v1/**").permitAll()
                 .antMatchers().hasRole("USER")
                 .anyRequest().authenticated().and().formLogin().loginPage("/api/v1/login").successHandler(roleSuccessHandler).permitAll()
                 .and().logout().invalidateHttpSession(true).clearAuthentication(true)
