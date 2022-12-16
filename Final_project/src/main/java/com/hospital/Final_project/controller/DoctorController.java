@@ -31,8 +31,8 @@ public class DoctorController {
     }
 
     @GetMapping("/client")
-    public ModelAndView getClientById(@PathVariable Long id, Model model){
-        model.addAttribute("client", clientService.getClientById(id));
+    public ModelAndView getClientById(){
+//        model.addAttribute("client", clientService.getClientById(id));
         return new ModelAndView("client");
     }
 

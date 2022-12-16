@@ -1,10 +1,15 @@
 package com.hospital.Final_project.model;
 
+import com.hospital.Final_project.user.User;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
+@Getter
+@Setter
 @Table(name = "staff")
 public class DoctorModel {
 
@@ -25,6 +30,9 @@ public class DoctorModel {
     @Column(name = "phone", nullable = false)
     private Integer phone;
 
+    @OneToOne(mappedBy = "doctorModel")
+    private User user;
+
     public DoctorModel() {
     }
 
@@ -44,72 +52,4 @@ public class DoctorModel {
         this.phone = phone;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public LocalDate getDateOfbirth() {
-        return dateOfbirth;
-    }
-
-    public void setDateOfbirth(LocalDate dateOfbirth) {
-        this.dateOfbirth = dateOfbirth;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Integer getOffice() {
-        return office;
-    }
-
-    public void setOffice(Integer office) {
-        this.office = office;
-    }
-
-    public Integer getPhone() {
-        return phone;
-    }
-
-    public void setPhone(Integer phone) {
-        this.phone = phone;
-    }
-
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", dateOfbirth=" + dateOfbirth +
-                ", role='" + role + '\'' +
-                ", office=" + office +
-                ", phone=" + phone +
-                '}';
-    }
 }
