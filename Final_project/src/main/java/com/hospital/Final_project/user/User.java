@@ -47,10 +47,11 @@ public class User {
 
     }
 
-    public User(String userName, String userSurname, String email, String password) {
+    public User(String userName, String userSurname, String email, String password, Collection<Role> userRole) {
         this.userName = userName;
         this.userSurname = userSurname;
         this.email = email;
         this.password = password;
+        this.userRole = userRole;
     }
 }

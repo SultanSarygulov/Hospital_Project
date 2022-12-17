@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
+@RequestMapping("/doctor-home")
 public class DoctorController {
     private final DoctorService doctorService;
     private final ClientService clientService;
@@ -19,26 +20,11 @@ public class DoctorController {
 
     }
 
-    @GetMapping("/doctorHomePage")
+    @GetMapping
     public String doctorHomePage(Model model){
         return "Doctor home page";
     }
 
-    @GetMapping("/clients")
-    public ModelAndView findClients(Model model){
-        model.addAttribute("clients", clientService.getAllClients());
-        return new ModelAndView("clients");
-    }
 
-    @GetMapping("/client")
-    public ModelAndView getClientById(){
-//        model.addAttribute("client", clientService.getClientById(id));
-        return new ModelAndView("client");
-    }
-
-    @GetMapping("/client/sendResults")
-    public String sendClientsResult(Model model){
-        return "Your results are good!";
-    }
 
 }

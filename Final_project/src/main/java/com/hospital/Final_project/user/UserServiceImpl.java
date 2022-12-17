@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -26,8 +27,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(email);
         if(user == null) {
             throw new UsernameNotFoundException("Wrong password or name");
         }
@@ -40,7 +41,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(User user) {
+    public User save(UserDTO userDTO) {
+        User user = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getEmail(), passwordEncoder.encode(userDTO.getPassword()),
+                Arrays.asList(new Role(userDTO.getRole())));
         return userRepository.save(user);
     }
 
