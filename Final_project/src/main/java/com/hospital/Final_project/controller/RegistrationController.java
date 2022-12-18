@@ -37,13 +37,12 @@ public class RegistrationController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody UserDTO userDTO){
+    public ResponseEntity<String> login(@RequestBody UserDTO userDTO) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 userDTO.getEmail(), userDTO.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
     }
-
 
 }

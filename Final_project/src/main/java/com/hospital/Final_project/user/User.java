@@ -1,5 +1,6 @@
 package com.hospital.Final_project.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hospital.Final_project.model.ClientModel;
 import com.hospital.Final_project.model.DoctorModel;
 import lombok.Getter;
@@ -37,10 +38,12 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_doctor_id", referencedColumnName = "id")
+    @JsonIgnore
     private DoctorModel doctorModel;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_client_id", referencedColumnName = "id")
+    @JsonIgnore
     private ClientModel clientModel;
 
     public User(){

@@ -50,8 +50,9 @@ public class UserSecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
         http.csrf().disable().authorizeHttpRequests().antMatchers("/api/v1", "/login").permitAll()
-                .antMatchers("/home").hasAuthority("CLIENT")
-                .antMatchers("/doctor-home").hasAuthority("DOCTOR");
+                .antMatchers("/home", "/home/my-information", "/home/doctors-timetables", "/home/history-of-illness").hasAuthority("CLIENT")
+                .antMatchers("/doctor-home").hasAuthority("DOCTOR")
+                .antMatchers("/head-doctor-home").hasAuthority("HEAD-DOCTOR");
         return http.build();
     }
 
