@@ -1,149 +1,61 @@
 package com.hospital.Final_project.model;
 
 
+import com.hospital.Final_project.user.User;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "clients")
 public class ClientModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    @Column(name = "name", nullable = false)
-    private String name;
-    @Column(name = "surname", nullable = false)
-    private String surname;
     @Column(name = "dateOFbirth", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfbirth;
-    @Column(name = "problem")
-    private String problem;
-    @Column(name = "email")
-    private String email;
+    @Column(name = "bloodGroup")
+    private String bloodGroup;
+    @Column(name = "height")
+    private String height;
+    @Column(name = "weight")
+    private String weight;
     @Column(name = "phone", nullable = false)
     private Integer phone;
-    @Column(name = "whom")
-    private Long whom;
-    @Column(name = "time", nullable = false)
-    private LocalDate when;
 
-    public ClientModel() {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.dateOfbirth = dateOfbirth;
-        this.problem = problem;
-        this.email = email;
-        this.phone = phone;
-        this.whom = whom;
-        this.when = when;
+    @OneToOne(mappedBy = "clientModel")
+    private User user;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Collection<Appointment> appointments;
+
+    public ClientModel(){
+
     }
-
 
     public ClientModel(
-            String name,
-            String surname,
             LocalDate dateOfbirth,
-            String problem,
-            String email,
-            Integer phone,
-            Long whom,
-            LocalDate when) {
-        this.name = name;
-        this.surname = surname;
+            String bloodGroup,
+            String height,
+            String weight,
+            Integer phone
+    )
+    {
         this.dateOfbirth = dateOfbirth;
-        this.problem = problem;
-        this.email = email;
-        this.phone = phone;
-        this.whom = whom;
-        this.when = when;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public LocalDate getDateOfbirth() {
-        return dateOfbirth;
-    }
-
-    public void setDateOfbirth(LocalDate dateOfbirth) {
-        this.dateOfbirth = dateOfbirth;
-    }
-
-    public String getProblem() {
-        return problem;
-    }
-
-    public void setProblem(String problem) {
-        this.problem = problem;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Integer getPhone() {
-        return phone;
-    }
-
-    public void setPhone(Integer phone) {
+        this.bloodGroup = bloodGroup;
+        this.height = height;
+        this.weight = weight;
         this.phone = phone;
     }
 
-    public Long getWhom() {
-        return whom;
-    }
-
-    public void setWhom(Long whom) {
-        this.whom = whom;
-    }
-
-    public LocalDate getWhen() {
-        return when;
-    }
-
-    public void setWhen(LocalDate when) {
-        this.when = when;
-    }
-
-    @Override
-    public String toString() {
-        return "Model_registration{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", dateOfbirth=" + dateOfbirth +
-                ", problem='" + problem + '\'' +
-                ", email='" + email + '\'' +
-                ", phone=" + phone +
-                ", whom=" + whom +
-                ", when=" + when +
-                '}';
-    }
 }
