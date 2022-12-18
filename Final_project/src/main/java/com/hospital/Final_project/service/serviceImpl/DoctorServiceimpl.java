@@ -36,6 +36,11 @@ public class DoctorServiceimpl implements DoctorService {
     }
 
     @Override
+    public List<DoctorModel> getAllTimeTables() {
+        return doctorRepository.findAllTimeTable();
+    }
+
+    @Override
     public DoctorModel getDoctorById(Long id) {
         return doctorRepository.findById(id).get();
     }

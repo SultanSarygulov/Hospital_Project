@@ -15,5 +15,7 @@ public interface DoctorService {
 
 //    DoctorModel deleteDoctor(DoctorModel doctorModel);
 
+    List<DoctorModel> getAllTimeTables();
+
     DoctorModel getDoctorById(Long id);
 }
